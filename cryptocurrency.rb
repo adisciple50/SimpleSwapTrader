@@ -7,9 +7,8 @@ class Cryptocurrency
     @amount = 0.0
   end
   def convert_to(currency)
-    Pair.new
+    Pair.new(@symbol,currency.to_s)
   end
-
   def to_s
     @symbol
   end
