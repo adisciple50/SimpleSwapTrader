@@ -12,6 +12,9 @@
 
 require_relative 'exchange'
 
-exchange = Exchange.new
+def generate_pairs
+  exchange = Exchange.new
+  exchange.get_currencies.permutation(2).to_a
+end
 
-puts exchange.get_currencies
+puts generate_pairs.to_s
