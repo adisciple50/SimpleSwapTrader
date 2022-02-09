@@ -14,15 +14,27 @@ class Exchange
   def find_pair(currency_one,currency_two)
     @data.select {|currency| currency['currency_from'] == currency_one.to_s && currency['currency_to'] == currency_two.to_s}
   end
+  def get_attribute(currency_one,currency_two,attribute)
+    result = find_pair(currency_one,currency_two)[0]
+    # puts result.to_s
+    if result.nil? || result == ""
+      return 0.0
+    else
+      puts "result attr is:#{result[attribute]}"
+      result[attribute]
+    end
+  end
+
   def get_rate(currency_one,currency_two)
-    find_pair(currency_one,currency_two)[0]['rate']
+    get_attribute(currency_one,currency_two,'rate').to_f
   end
   def get_max(currency_one,currency_two)
-    find_pair(currency_one,currency_two)[0]['max']
+    get_attribute(currency_one,currency_two,'max').to_f
   end
   def get_min(currency_one,currency_two)
-    find_pair(currency_one,currency_two)[0]['min']
+    get_attribute(currency_one,currency_two,'min').to_f
   end
+
   def get_currencies
     currencies_one = @data.map do |data_pair|
       data_pair['currency_from']

@@ -15,12 +15,16 @@ class Chain
     # swap three
     @currency_three = Cryptocurrency.new(@chain[2],@swap_two)
     @currency_four = Cryptocurrency.new(@chain[3],0.0)
-    @swap_three = Pair.new(@chain[2],@chain[3]).quote_swap @swap_three
+    @swap_three = Pair.new(@currency_three,@currency_four).quote_swap @swap_three
     # result
     @currency_four = Cryptocurrency.new(@chain[3],@swap_three)
     @amount = @currency_four.amount
   end
   def to_f
     @amount
+  end
+
+  def to_s
+    "Winner: #{@chain.to_s} - Swap One: #{@swap_one} - Swap Two: #{@swap_two} - Swap Three: #{@swap_three} - Amount: #{@amount}"
   end
 end
