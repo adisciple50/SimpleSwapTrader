@@ -9,7 +9,7 @@ class Exchange
     @data = refresh_data
   end
   def refresh_data
-    @data = JSON.parse connection.get('get_market_info').body
+    @data = JSON.parse @connection.get('get_market_info').body
   end
   def find_pair(currency_one,currency_two)
     @data.select {|currency| currency['currency_from'] == currency_one.to_s && currency['currency_to'] == currency_two.to_s}
