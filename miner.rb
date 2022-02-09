@@ -6,3 +6,4 @@ connection = Faraday.new(
 )
 
 rates = JSON.parse connection.get('get_market_info').body
+puts rates

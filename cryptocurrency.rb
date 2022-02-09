@@ -10,4 +10,8 @@ class Cryptocurrency
   def convert_to(currency)
 
   end
+
+  def to_s
+    @symbol
+  end
 end
