@@ -1,9 +1,10 @@
+require 'exchange'
 class Pair
   attr_reader :currency_one,:currency_two
   attr_accessor :rate,:min,:max
 
-  def initialize(currency_one,currency_two,exchange)
-    @exchange = exchange
+  def initialize(currency_one,currency_two)
+    @exchange = Exchange.new
     @currency_one = currency_one
     @currency_two = currency_two
     @rate = exchange.get_rate(@currency_one.symbol,@currency_two.symbol)
