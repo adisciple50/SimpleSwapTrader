@@ -12,6 +12,10 @@ class Pair
     @min = exchange.get_min(@currency_one.symbol,@currency_two.symbol)
   end
 
+  def quote_swap(amount)
+    @rate * amount
+  end
+
   def to_s
     "#{currency_one.to_s}_#{currency_two.to_s}"
   end

@@ -1,13 +1,13 @@
 require_relative 'pair'
 class Cryptocurrency
   attr_reader :symbol
-  attr_accessor :rate
-  def initialize(symbol)
+  attr_accessor :amount
+  def initialize(symbol,amount=0.0)
     @symbol = symbol
-    @amount = 0.0
+    @amount = amount
   end
   def convert_to(currency)
-    Pair.new(@symbol,currency.to_s)
+    Pair.new(@symbol,currency)
   end
   def to_s
     @symbol
