@@ -13,10 +13,10 @@ class Pair
   end
 
   def quote_swap(amount)
-    if not amount
-      amount = 0.0
+    if not @rate.is_a? Float
+      raise TypeError
     end
-    @rate * amount
+    @rate.to_f * amount.to_f
   end
 
   def to_s
