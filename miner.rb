@@ -36,7 +36,7 @@ end
 # puts generate_chains.to_s
 #
 def map_chains_array_to_chain_classes(chains_array=generate_chains)
-  chains_array.map do |chain_array|
+  chains_array.uniq.map do |chain_array|
     Chain.new(chain_array,START_AMOUNT)
   end
 end
@@ -50,5 +50,5 @@ end
 
 sorted_chains = rank_amounts
 
-puts sorted_chains[0].to_s
+winner = sorted_chains[-1]
 puts sorted_chains[-1].to_s
