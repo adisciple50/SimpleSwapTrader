@@ -21,7 +21,7 @@ class Exchange
       puts "returning 0.0"
       return 0.0
     else
-      puts "result attr is:#{result[0][attribute]}"
+      # puts "result attr is:#{result[0][attribute]}"
       result[0][attribute]
     end
   end

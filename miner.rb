@@ -24,7 +24,7 @@ end
 
 def generate_chains(pairs = Exchange.new.list_pairs.uniq)
   results = generate_pairs.map do |pair|
-    if pairs.include?([IN_OUT_CURRENCY,pair[0]]) && pairs.include?([pair[0],IN_OUT_CURRENCY])
+    if pairs.include?([IN_OUT_CURRENCY,pair[0]]) && pairs.include?([pair[1],IN_OUT_CURRENCY])
       [IN_OUT_CURRENCY] + pair + [IN_OUT_CURRENCY]
     else
       nil
